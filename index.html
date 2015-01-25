@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app='QuoteManager'>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+	<title>Calculator</title>
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+	<style>
+		input {
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  	<div class="navbar-header">
+  		<a class="navbar-brand" href="#">Shipper</a>
+  	</div>
+  </div>
+ </nav>
+<div class="container" data-ng-controller='Calculator as calculator'>
+	<div class='row'>
+		<div class='col-xs-12'>
+			<form class='form-horizontal'>
+				<div class="form-group">
+			    	<label class='control-label col-xs-7' for="nItems">No. of items</label>
+			    	<div class="col-xs-5">
+			    		<input type="number" class="form-control" id='nItems' data-ng-model='calculator.nUnits' data-ng-change='calculator.unitsChanged()'>
+			    	</div>	    	
+			  	</div>
+			  	<div class="form-group">
+		    		<label class="control-label col-xs-7">Base Price</label>
+		    		<div class="col-xs-5">
+		   				<p class="form-control-static pull-right">{{calculator.basePrice | currency:'¥':0 }}</p>
+		   			</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="control-label col-xs-7">Delivery Charge</label>
+		    		<div class="col-xs-5">
+		   				<p class="form-control-static pull-right">{{calculator.deliveryCharge | currency:'¥':0 }}</p>
+		   			</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="control-label col-xs-7">Sub Total</label>
+		   			<div class="col-xs-5">
+		   				<p class="form-control-static pull-right">{{calculator.subTotal | currency:'¥':0 }}</p>
+		   			</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="control-label col-xs-7">Import Duty (5.8%)</label>
+		   			<div class="col-xs-5">
+		   				<p class="form-control-static pull-right">{{calculator.importDuty | currency:'¥':0 }}</p>
+		   			</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="control-label col-xs-7">Sales Tax (6.3%)</label>
+		   			<div class="col-xs-5">
+		   				<p class="form-control-static pull-right">{{calculator.salesTax | currency:'¥':0}}</p>
+		   			</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="control-label col-xs-7">Local Sales Tax (1.7%)</label>
+		   			<div class="col-xs-5">
+		   				<p class="form-control-static pull-right">{{calculator.localSalesTax | currency:'¥':0 }}</p>
+		   			</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="control-label col-xs-7">Tax and Duty</label>
+		   			<div class="col-xs-5">
+		   				<p class="form-control-static pull-right">{{calculator.taxAndDuty | currency:'¥':0 }}</p>
+		   			</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="control-label col-xs-7">Total</label>
+		   			<div class="col-xs-5">
+		   				<p class="form-control-static pull-right">{{calculator.Total | currency:'¥':0 }}</p>
+		   			</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script src='lib/angular/angular.min.js'></script>
+<script src='js/app.js'></script>
+</body>
+</html>
